@@ -1,0 +1,12 @@
+sudo: required
+
+services:
+    - docker
+
+language: generic
+
+before_install:
+    - docker build -f Dockerfile.dev -t react-frontend .
+
+script:
+    - CI=true docker run react-frontend npm run test
