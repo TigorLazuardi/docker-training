@@ -1,0 +1,15 @@
+image: 'docker:latest'
+
+services:
+    - docker:dind
+
+cache:
+    paths:
+        - /app/node_modules/
+
+stages:
+    - build
+
+build:
+    script:
+        - docker build . -t crowfx/training-ci-cd
